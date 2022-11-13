@@ -23,8 +23,7 @@ CreateArray(matrix02);
 Console.WriteLine("Вторая матрица:");
 WriteArray(matrix02);
 
-int[,] resultMatrix = new int[m,o];
-
+// заполнение матрицы
 void CreateArray(int[,] array)
 {
   for (int i = 0; i < array.GetLength(0); i++)
@@ -35,6 +34,7 @@ void CreateArray(int[,] array)
     }
   }
 }
+// печать матрицы
 void WriteArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -46,3 +46,25 @@ void WriteArray(int[,] array)
         Console.WriteLine();
     }
 }
+
+int[,] resultMatrix = new int[n,o];
+
+// произведение матриц
+void matrixresult(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+{
+  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    {
+      int temp = 0;
+      for (int k = 0; k < firstMartrix.GetLength(1); k++)
+      {
+        temp += firstMartrix[i,k] * secomdMartrix[k,j];
+      }
+      resultMatrix[i,j] = temp;
+    }
+  }
+}
+matrixresult(matrix01, matrix02, resultMatrix);
+Console.WriteLine("Произведение матриц:");
+WriteArray(resultMatrix);
