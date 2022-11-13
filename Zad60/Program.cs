@@ -21,7 +21,7 @@ void CreateArray(int[,,] matrix)
         {
             for (int k = 0; k < matrix.GetLength(2); k++)
             {
-                matrix[i, j, k] = new Random().Next(1, 9);
+                matrix[i, j, k] = new Random().Next(10, 99);
             }
             
         }
